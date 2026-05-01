@@ -137,3 +137,12 @@ select, textarea {
   justify-content: center;
   align-items: center;
 }
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 350px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}

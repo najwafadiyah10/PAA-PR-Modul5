@@ -115,11 +115,11 @@ async function loadBooks() {
 
 function openPayPopup(fineId) {
   document.getElementById("fineId").value = fineId;
-  document.getElementById("payPopup").style.display = "block";
+  document.getElementById("payPopup").classList.add("active");
 }
 
 function closePayPopup() {
-  document.getElementById("payPopup").style.display = "none";
+  document.getElementById("payPopup").classList.remove("active");
 }
 
 
