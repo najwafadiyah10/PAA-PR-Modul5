@@ -1,25 +1,21 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY */
 body {
   font-family: 'Poppins', 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #eef2ff, #f8fafc);
   color: #333;
 }
 
-/* CONTAINER */
 .container {
   max-width: 1100px;
   margin: auto;
   padding: 30px 20px;
 }
 
-/* TOPBAR */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -32,7 +28,6 @@ body {
   font-size: 22px;
 }
 
-/* CARD */
 .card {
   background: #fff;
   padding: 20px;
@@ -46,7 +41,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -72,7 +66,6 @@ tr:hover {
   background: #f9fafc;
 }
 
-/* BUTTON */
 .btn {
   padding: 6px 12px;
   border-radius: 8px;
@@ -82,7 +75,6 @@ tr:hover {
   transition: 0.2s ease;
 }
 
-/* BUTTON COLORS */
 .btn-success {
   background: #22c55e;
   color: white;
@@ -107,7 +99,6 @@ tr:hover {
   background: #475569;
 }
 
-/* BADGE (buat status nanti kalau mau) */
 .badge {
   padding: 4px 8px;
   border-radius: 6px;
@@ -124,7 +115,6 @@ tr:hover {
   color: #991b1b;
 }
 
-/* POPUP */
 #overlay {
   display: none;
   position: fixed;
@@ -184,14 +174,12 @@ tr:hover {
   border-color: #6366f1;
 }
 
-/* POPUP BUTTON */
 .popup-actions {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .topbar {
     flex-direction: column;

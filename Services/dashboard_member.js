@@ -20,7 +20,6 @@ async function getAllBooks() {
   return allBooks;
 }
 
-// ================= GET FINES =================
 async function getAllFines() {
   try {
     const res = await fetch(`${API_URL}/fines`, {
@@ -35,7 +34,6 @@ async function getAllFines() {
   }
 }
 
-// ================= LOAD DASHBOARD =================
 async function loadBooks() {
   const books = await getAllBooks();
   const loans = await getLoans();
@@ -44,7 +42,6 @@ async function loadBooks() {
   const activeLoans = loans.filter(l => l.status === "borrowed");
   const returnedLoans = loans.filter(l => l.status === "returned");
 
-  // ================= BUKU DIPINJAM =================
   let borrowedHtml = "<table><tr><th>Judul</th><th>Penulis</th><th>Batas </th><th>Kembalikan</th></tr>";
 
   if (activeLoans.length > 0) {
@@ -63,7 +60,6 @@ async function loadBooks() {
   borrowedHtml += "</table>";
   document.getElementById("borrowedBooks").innerHTML = borrowedHtml;
 
-  // ================= DENDA USER =================
   let fineHtml = `
     <table>
       <tr>
@@ -78,7 +74,6 @@ async function loadBooks() {
   if (returnedLoans.length > 0) {
     returnedLoans.forEach(loan => {
 
-      // ambil semua denda untuk loan ini
       const loanFines = fines.filter(f => f.loan?._id === loan._id);
 
       if (loanFines.length > 0) {
@@ -115,8 +110,7 @@ async function loadBooks() {
   fineHtml += "</table>";
   document.getElementById("userFines").innerHTML = fineHtml;
 
-  
-  // ================= BUKU TERSEDIA =================
+
   renderAvailableBooks(books, activeLoans);
 }
 
@@ -162,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Denda berhasil dibayar!");
 
         closePayPopup();
-        loadBooks(); // reload dashboard
+        loadBooks();
 
       } catch (err) {
         console.error("Gagal bayar:", err);
@@ -171,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ================= RENDER AVAILABLE =================
 function renderAvailableBooks(books, activeLoans) {
   let availableHtml = "<table><tr><th>Judul</th><th>Penulis</th><th>Kategori</th><th>Jumlah</th><th>Pinjam</th></tr>";
 
@@ -193,7 +186,6 @@ function renderAvailableBooks(books, activeLoans) {
   document.getElementById("availableBooks").innerHTML = availableHtml;
 }
 
-// ================= SEARCH =================
 async function searchBooksByCategory() {
   const category = document.getElementById("searchCategory").value;
 
@@ -212,7 +204,6 @@ async function searchBooksByCategory() {
   renderAvailableBooks(books, []);
 }
 
-// ================= NAV =================
 function goToBorrowPage(id) {
   window.location.href = `borrow.html?id=${id}`;
 }
@@ -226,5 +217,4 @@ function logout() {
   window.location.href = "login.html";
 }
 
-// ================= INIT =================
 window.onload = loadBooks;

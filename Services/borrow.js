@@ -3,7 +3,7 @@ const params = new URLSearchParams(window.location.search);
 const bookId = params.get("id");
 
 async function loadBookDetail() {
-  const book = await getBookById(bookId); // dari app.js
+  const book = await getBookById(bookId); 
   if (!book) {
     document.getElementById("bookDetail").innerHTML = "<p>Data buku tidak ditemukan.</p>";
     return;
@@ -22,7 +22,7 @@ async function loadBookDetail() {
 }
 
 async function borrowThisBook() {
-  const res = await borrowBook(bookId); // dari app.js
+  const res = await borrowBook(bookId);
   alert(res.message || "Peminjaman berhasil!");
   window.location.href = "index.html";
 }

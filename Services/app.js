@@ -113,33 +113,6 @@ function renderBooks(books) {
 }
 
 
-
-
-
-
-
-
-// ==========================
-// 📖 Pinjam Buku (Member)
-// ==========================
-// async function borrowBook(bookId) {
-//   try {
-//     const res = await fetch(`${API_URL}/borrowings`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${token}`
-//       },
-//       body: JSON.stringify({ bookId })
-//     });
-//     const result = await res.json();
-//     console.log("Pinjam buku:", result);
-//     alert(result.message || "Peminjaman berhasil!");
-//     return result;
-//   } catch (error) {
-//     console.error("Gagal meminjam buku:", error);
-//   }
-// }
 async function borrowBook(bookId) {
   try {
     const res = await fetch(`${API_URL}/loans/borrow`, {
@@ -160,47 +133,6 @@ async function borrowBook(bookId) {
 }
 
 
-
-
-// async function loadLoanDetail() {
-//   try {
-//     const res = await fetch(`${API_URL}/loans/${loanId}`, {
-//       headers: { Authorization: `Bearer ${token}` }
-//     });
-//     const result = await res.json();
-//     const loan = await Loan.findById(req.params.id).populate('book');
-
-//     if (!loan) {
-//       document.getElementById("loanDetail").innerHTML = "<p>Data peminjaman tidak ditemukan.</p>";
-//       return;
-//     }
-
-//     // cek apakah loan.book ada
-//     const book = loan.book || {};
-//     const title = book.title || "(judul tidak tersedia)";
-//     const author = book.author || "(penulis tidak tersedia)";
-//     const borrowDate = loan.loanDate ? new Date(loan.loanDate).toLocaleDateString() : "-";
-//     const dueDate = loan.dueDate ? new Date(loan.dueDate).toLocaleDateString() : "-";
-//     const status = loan.status || "-";
-
-//     document.getElementById("loanDetail").innerHTML = `
-//       <p><strong>Judul Buku:</strong> ${title}</p>
-//       <p><strong>Penulis:</strong> ${author}</p>
-//       <p><strong>Tanggal Pinjam:</strong> ${borrowDate}</p>
-//       <p><strong>Batas Pengembalian:</strong> ${dueDate}</p>
-//       <p><strong>Status:</strong> ${status}</p>
-//     `;
-//   } catch (error) {
-//     console.error("Gagal mengambil detail peminjaman:", error);
-//     document.getElementById("loanDetail").innerHTML = "<p>Terjadi kesalahan saat memuat data peminjaman.</p>";
-//   }
-// }
-
-
-
-// ==========================
-// 🔁 Kembalikan Buku
-// ==========================
 async function returnBook(borrowingId) {
   try {
     const res = await fetch(`${API_URL}/borrowings/${borrowingId}`, {
@@ -219,22 +151,6 @@ async function returnBook(borrowingId) {
   }
 }
 
-
-// async function getLoans() {
-//   try {
-//     const res = await fetch(`${API_URL}/loans`, {
-//       headers: { Authorization: `Bearer ${token}` }
-//     });
-//     const result = await res.json();
-//     console.log("Daftar peminjaman:", result);
-//     return result.data.loans || [];
-//   } catch (error) {
-//     console.error("Gagal mengambil daftar peminjaman:", error);
-//     return [];
-//   }
-// }
-
-
 async function getLoans() {
   try {
     const res = await fetch(`${API_URL}/loans?timestamp=${Date.now()}`, {
@@ -249,12 +165,6 @@ async function getLoans() {
 }
 
 
-
-
-
-// ==========================
-// 💰 Lihat Denda
-// ==========================
 async function getFines() {
   try {
     const res = await fetch(`${API_URL}/fines`, {
@@ -268,9 +178,3 @@ async function getFines() {
     return [];
   }
 }
-
-
-// function logout() {
-//   localStorage.clear();
-//   window.location.href = "login.html";
-// }

@@ -1,6 +1,5 @@
 const API_URL = "https://library-api-lime.vercel.app/api";
 
-// REGISTER
 async function registerUser(data) {
   const res = await fetch(`${API_URL}/auth/register`, {
     method: "POST",
@@ -10,7 +9,6 @@ async function registerUser(data) {
   return res.json();
 }
 
-// LOGIN
 async function loginUser(data) {
   const res = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
@@ -21,7 +19,6 @@ async function loginUser(data) {
 
   console.log("Response login:", result);
 
-  // Simpan token dan role dari struktur response API
   if (result.data?.accessToken) {
     localStorage.setItem("token", result.data.accessToken);
     const role = result.data.user?.role || "member";

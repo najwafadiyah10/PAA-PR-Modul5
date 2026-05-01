@@ -1,7 +1,6 @@
 let editMode = false;
 let editId = null;
 
-// ================= LOAD DATA =================
 async function loadBooks() {
   try {
     const books = await getBooks();
@@ -36,7 +35,6 @@ async function loadBooks() {
   }
 }
 
-// ================= DELETE =================
 async function deleteBook(id) {
   if (!confirm("Yakin mau hapus buku ini?")) return;
 
@@ -52,7 +50,6 @@ async function deleteBook(id) {
   }
 }
 
-// ================= EDIT =================
 async function editBook(id) {
   try {
     const res = await fetch(`${API_URL}/books/${id}`, {
@@ -62,7 +59,6 @@ async function editBook(id) {
     const result = await res.json();
     const book = result.data.book;
 
-    // isi form popup
     document.getElementById("title").value = book.title;
     document.getElementById("author").value = book.author;
     document.getElementById("isbn").value = book.isbn;
@@ -84,7 +80,6 @@ async function editBook(id) {
   }
 }
 
-// ================= TAMBAH / UPDATE =================
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("addBookForm");
 
@@ -106,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         if (editMode) {
-          // UPDATE
           await fetch(`${API_URL}/books/${editId}`, {
             method: "PUT",
             headers: {
@@ -116,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
             body: JSON.stringify(data)
           });
         } else {
-          // CREATE
           await fetch(`${API_URL}/books`, {
             method: "POST",
             headers: {
@@ -137,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ================= POPUP =================
 function openPopup() {
   document.getElementById("popupForm").style.display = "block";
   document.getElementById("overlay").style.display = "block";
@@ -154,11 +146,9 @@ function closePopup() {
   editId = null;
 }
 
-// ================= LOGOUT =================
 function logout() {
   localStorage.clear();
   window.location.href = "login.html";
 }
 
-// ================= INIT =================
 window.onload = loadBooks;

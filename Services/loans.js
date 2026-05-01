@@ -19,7 +19,6 @@ async function getAllLoans() {
   return allLoans;
 }
 
-// Ambil semua denda dari API
 async function getAllFines() {
   try {
     const res = await fetch(`${API_URL}/fines`, {
@@ -39,7 +38,6 @@ async function loadLoans() {
   const activeLoans = loans.filter(l => l.status === "borrowed");
   const returnedLoans = loans.filter(l => l.status === "returned");
 
-  // ===== TABEL PEMINJAMAN AKTIF =====
   let activeHtml = "<table><tr><th>Nama</th><th>Buku</th><th>Tgl Pinjam</th><th>Jatuh Tempo</th></tr>";
 
   if (activeLoans.length > 0) {
@@ -63,7 +61,6 @@ async function loadLoans() {
   activeHtml += "</table>";
   document.getElementById("loanList").innerHTML = activeHtml;
 
-  // ===== TABEL HISTORY + DENDA =====
   let historyHtml = `
     <table>
       <tr>
@@ -85,7 +82,6 @@ async function loadLoans() {
       const loanDate = loan.loanDate ? new Date(loan.loanDate).toLocaleDateString() : "-";
       const returnDate = loan.returnDate ? new Date(loan.returnDate).toLocaleDateString() : "-";
 
-      // FIX: ambil denda yang benar
       const loanFines = fines.filter(f => f.loan?._id === loan._id);
 
 const amount = loanFines.length > 0 
@@ -121,7 +117,6 @@ const notes = loanFines.length > 0
   document.getElementById("loanHistory").innerHTML = historyHtml;
 }
 
-// Popup Tambah Denda
 function openFinePopup(loanId) {
   document.getElementById("loanId").value = loanId;
   document.getElementById("finePopup").style.display = "block";
@@ -131,7 +126,6 @@ function closeFinePopup() {
   document.getElementById("finePopup").style.display = "none";
 }
 
-// Simpan denda dari popup
 document.addEventListener("DOMContentLoaded", () => {
   const fineForm = document.getElementById("fineForm");
   if (fineForm) {
@@ -158,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       closeFinePopup();
-      loadLoans(); // reload tabel supaya denda baru muncul
+      loadLoans(); 
     });
   }
 })

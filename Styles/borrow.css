@@ -1,4 +1,3 @@
-/* ===== GLOBAL ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
   background: #f4f6f9;
@@ -6,13 +5,11 @@ body {
   padding: 20px;
 }
 
-/* ===== CONTAINER ===== */
 .container {
   max-width: 600px;
   margin: auto;
 }
 
-/* ===== CARD ===== */
 .card {
   background: white;
   padding: 25px;
@@ -20,12 +17,10 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* ===== TITLE ===== */
 .card h2 {
   margin-bottom: 15px;
 }
 
-/* ===== DETAIL BOX ===== */
 #bookDetail {
   border: 1px solid #eee;
   padding: 15px;
@@ -34,7 +29,6 @@ body {
   line-height: 1.6;
 }
 
-/* ===== BUTTON ===== */
 .actions {
   margin-top: 20px;
   display: flex;
