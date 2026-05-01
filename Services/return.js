@@ -1,4 +1,3 @@
-// Ambil ID peminjaman dari URL
 const params = new URLSearchParams(window.location.search);
 const loanId = params.get("id");
 

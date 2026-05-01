@@ -1,4 +1,3 @@
-// ================= GET ALL BOOKS =================
 async function getAllBooks() {
   let allBooks = [];
   let page = 1;

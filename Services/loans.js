@@ -1,4 +1,3 @@
-// Ambil semua peminjaman
 async function getAllLoans() {
   let allLoans = [];
   let page = 1;
