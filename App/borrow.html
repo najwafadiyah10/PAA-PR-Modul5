@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pinjam Buku - Perpustakaan</title>
+
+  <script src="../Services/authServices.js"></script>
+  <script src="../Services/app.js"></script>
+  <script src="../Services/borrow.js"></script>
+
+  <link rel="stylesheet" href="../styles/borrow.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="card">
+    <h2>📖 Detail Buku</h2>
+
+    <div id="bookDetail"></div>
+
+    <div class="actions">
+      <button class="btn btn-success" onclick="borrowThisBook()">Pinjam Buku</button>
+      <button class="btn btn-secondary" onclick="window.location.href='index.html'">Kembali</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

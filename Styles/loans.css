@@ -1,0 +1,205 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  color: #333;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.topbar h2 {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* CARD */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+th {
+  background: #6366f1;
+  color: white;
+  text-align: left;
+  font-weight: 500;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+  background: #f9fafc;
+}
+
+/* BUTTON */
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+/* BUTTON COLORS */
+.btn-success {
+  background: #22c55e;
+  color: white;
+}
+.btn-success:hover {
+  background: #16a34a;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+.btn-secondary {
+  background: #64748b;
+  color: white;
+}
+.btn-secondary:hover {
+  background: #475569;
+}
+
+/* BADGE (buat status nanti kalau mau) */
+.badge {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.badge-paid {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-unpaid {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* POPUP */
+#overlay {
+  display: none;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+#finePopup {
+  display: none;
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%) scale(0.95);
+  background:#fff;
+  padding:25px;
+  border-radius:16px;
+  width:360px;
+  z-index:1000;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  animation: popupFade 0.2s ease forwards;
+}
+
+@keyframes popupFade {
+  to {
+    transform: translate(-50%,-50%) scale(1);
+  }
+}
+
+#finePopup h3 {
+  margin-bottom: 10px;
+}
+
+#finePopup label {
+  font-size: 13px;
+  color: #555;
+}
+
+#finePopup input,
+#finePopup select,
+#finePopup textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+#finePopup input:focus,
+#finePopup select:focus,
+#finePopup textarea:focus {
+  border-color: #6366f1;
+}
+
+/* POPUP BUTTON */
+.popup-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  table {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,119 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 🔥 ini penting biar ga mencong */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+  background: linear-gradient(135deg, #3498db, #6dd5fa);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== CONTAINER ===== */
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+}
+
+/* ===== CARD ===== */
+.auth-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  animation: fadeIn 0.4s ease;
+}
+
+/* ===== TITLE ===== */
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* ===== FORM ===== */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 11px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: 0.25s;
+  font-size: 14px;
+}
+
+/* focus effect */
+.form-group input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52,152,219,0.15);
+  outline: none;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.25s;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+/* ===== LINK ===== */
+.auth-link {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #666;
+}
+
+.auth-link a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

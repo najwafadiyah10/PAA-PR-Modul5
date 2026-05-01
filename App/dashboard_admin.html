@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Admin</title>
+
+  <script src="../Services/authServices.js"></script>
+  <script src="../Services/app.js"></script>
+
+  <link rel="stylesheet" href="../styles/admin.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="topbar">
+    <h2>📚 Dashboard Admin</h2>
+    <div class="topbar-actions">
+      <button class="btn btn-primary" onclick="window.location.href='loans.html'">Peminjaman</button>
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <div class="header">
+      <div>
+        <h3>Daftar Buku</h3>
+        <p class="subtitle">Kelola semua data buku perpustakaan</p>
+      </div>
+
+      <button class="btn btn-success" onclick="openPopup()">+ Tambah Buku</button>
+    </div>
+
+    <div id="bookList" class="book-grid">
+  <!-- contoh card statis, nanti diganti JS -->
+  <div class="book-card">
+    <h3 class="book-title">Judul Buku</h3>
+    <p class="book-info">Penulis: John Doe</p>
+    <p class="book-info">ISBN: 123456789</p>
+    <p class="book-info">Penerbit: Gramedia</p>
+    <p class="book-info">Tahun Terbit: 2024</p>
+    <p class="book-info">Kategori: Fiksi</p>
+    <p class="book-info">Lokasi: Rak A1</p>
+    <p class="book-info">Jumlah Salinan: 5</p>
+    <p class="book-info">Deskripsi: Cerita menarik tentang ...</p>
+
+    <div class="book-actions">
+      <button class="btn btn-success">Pinjam</button>
+      <button class="btn btn-warning">Edit</button>
+      <button class="btn btn-danger">Hapus</button>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+
+</div>
+
+<div id="overlay"></div>
+
+<!-- Popup -->
+<div id="popupForm">
+  <h3 id="popupTitle">Tambah Buku</h3>
+
+  <form id="addBookForm">
+    <input type="text" id="title" placeholder="Judul" required>
+    <input type="text" id="author" placeholder="Penulis" required>
+    <input type="text" id="isbn" placeholder="ISBN" required>
+    <input type="text" id="publisher" placeholder="Penerbit" required>
+    <input type="number" id="publishYear" placeholder="Tahun Terbit" required>
+    <input type="text" id="category" placeholder="Kategori" required>
+    <textarea id="description" placeholder="Deskripsi" required></textarea>
+    <input type="number" id="totalCopies" placeholder="Jumlah Salinan" required>
+    <input type="text" id="location" placeholder="Lokasi Rak" required>
+
+    <div class="popup-actions">
+      <button class="btn btn-success" type="submit">Simpan</button>
+      <button class="btn btn-danger" type="button" onclick="closePopup()">Batal</button>
+    </div>
+  </form>
+</div>
+
+<script src="../Services/dashboard_admin.js"></script>
+
+</body>
+</html>

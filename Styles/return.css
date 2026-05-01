@@ -1,0 +1,65 @@
+/* ===== GLOBAL ===== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* ===== TITLE ===== */
+.card h2 {
+  margin-bottom: 15px;
+}
+
+/* ===== DETAIL BOX ===== */
+#bookDetail {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 8px;
+  background: #fafafa;
+  line-height: 1.6;
+}
+
+/* ===== BUTTON ===== */
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-success {
+  background: #2ecc71;
+  color: white;
+}
+
+.btn-secondary {
+  background: #7f8c8d;
+  color: white;
+}

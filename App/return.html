@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kembalikan Buku - Perpustakaan</title>
+
+  <script src="../Services/authServices.js"></script>
+  <script src="../Services/app.js"></script>
+  <script src="../Services/return.js"></script>
+
+  <link rel="stylesheet" href="../styles/return.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="topbar">
+    <h2>📖 Detail Peminjaman</h2>
+    <button class="btn btn-secondary" onclick="window.location.href='index.html'">← Kembali</button>
+  </div>
+
+  <div class="card">
+    <div id="loanDetail"></div>
+
+    <div class="actions">
+      <button class="btn btn-success" onclick="returnThisBook()">Kembalikan Buku</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

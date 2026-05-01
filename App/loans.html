@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Daftar Peminjaman Buku</title>
+
+  <script src="../Services/authServices.js"></script>
+  <script src="../Services/app.js"></script>
+  <script src="../Services/loans.js" defer></script>
+
+  <link rel="stylesheet" href="../styles/loans.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="topbar">
+    <h2>📚 Daftar Peminjaman Buku</h2>
+    <button class="btn btn-secondary" onclick="window.location.href='index.html'">Kembali</button>
+  </div>
+
+  <div class="card">
+    <h3>Peminjaman Aktif</h3>
+    <div id="loanList">Loading...</div>
+  </div>
+
+  <div class="card">
+    <h3>Riwayat Peminjaman</h3>
+    <div id="loanHistory">Loading...</div>
+  </div>
+
+</div>
+
+<div id="overlay" onclick="closeFinePopup()"></div>
+
+<div id="finePopup">
+  <h3>Tambah Denda</h3>
+
+  <form id="fineForm">
+    <input type="hidden" id="loanId">
+
+    <label>Jumlah Denda</label>
+    <input type="number" id="amount" required>
+
+    <label>Alasan</label>
+    <select id="reason" required>
+      <option value="keterlambatan">Keterlambatan</option>
+      <option value="kerusakan">Kerusakan</option>
+      <option value="kehilangan">Kehilangan</option>
+    </select>
+
+    <label>Catatan</label>
+    <textarea id="notes"></textarea>
+
+    <div class="popup-actions">
+      <button class="btn btn-success" type="submit">Simpan</button>
+      <button class="btn btn-danger" type="button" onclick="closeFinePopup()">Batal</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof loadLoans === "function") {
+      loadLoans();
+    }
+  });
+</script>
+
+</body>
+</html>

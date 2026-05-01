@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Perpustakaan</title>
+
+  <script src="../Services/authServices.js"></script>
+
+  <!-- Pakai CSS yang sama dengan register -->
+  <link rel="stylesheet" href="../styles/auth.css">
+</head>
+
+<body>
+
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Login Akun</h2>
+
+    <form id="loginForm">
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+
+      <p class="auth-link">
+        Belum punya akun? <a href="register.html">Daftar</a>
+      </p>
+
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const result = await loginUser({ email, password });
+  console.log("Result di login.html:", result);
+
+  if (result.data?.accessToken) {
+    const role = result.data.user?.role || "member";
+    alert("Login berhasil sebagai " + role);
+    window.location.href = "./index.html";
+  } else {
+    alert(result.message || "Login gagal!");
+  }
+});
+</script>
+
+</body>
+</html>

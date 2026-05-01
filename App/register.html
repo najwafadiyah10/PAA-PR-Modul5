@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Perpustakaan</title>
+
+  <script src="../Services/authServices.js"></script>
+
+  <link rel="stylesheet" href="../styles/auth.css">
+</head>
+
+<body>
+
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Registrasi Anggota</h2>
+
+    <form id="registerForm">
+
+      <div class="form-group">
+        <label>Nama</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" required>
+      </div>
+
+      <div class="form-group">
+        <label>Telepon</label>
+        <input type="text" id="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label>Alamat</label>
+        <input type="text" id="address" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Daftar</button>
+
+      <p class="auth-link">
+        Sudah punya akun? <a href="login.html">Login</a>
+      </p>
+
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const phone = document.getElementById("phone").value;
+  const address = document.getElementById("address").value;
+
+  const result = await registerUser({ name, email, password, phone, address });
+
+  alert(result.message || "Registrasi berhasil!");
+
+  if (result.message && result.message.includes("berhasil")) {
+    window.location.href = "login.html";
+  }
+});
+</script>
+
+</body>
+</html>

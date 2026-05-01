@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect Dashboard</title>
+  <script>
+    window.onload = () => {
+      const role = localStorage.getItem("role");
+      if (!role) {
+        window.location.href = "login.html";
+      } else if (role === "admin") {
+        window.location.href = "dashboard_admin.html";
+      } else if (role === "member") {
+        window.location.href = "dashboard_member.html";
+      } else {
+        alert("Role tidak dikenali. Silakan login ulang.");
+        localStorage.clear();
+        window.location.href = "login.html";
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Mengarahkan ke dashboard...</p>
+</body>
+</html>

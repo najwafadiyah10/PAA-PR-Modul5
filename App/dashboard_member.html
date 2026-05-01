@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Member</title>
+
+  <script src="../Services/authServices.js"></script>
+  <script src="../Services/app.js"></script>
+  <script src="../Services/dashboard_member.js"></script>
+
+  <link rel="stylesheet" href="../styles/member.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="topbar">
+    <h2>📚 Dashboard Member</h2>
+    <button class="btn btn-danger" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="card">
+    <h3>📖 Buku yang Kamu Pinjam</h3>
+    <div id="borrowedBooks"></div>
+  </div>
+
+  <div class="card">
+    <h3>💰 Denda Kamu</h3>
+    <div id="userFines"></div>
+  </div>
+
+  <div class="card">
+
+    <div class="sectionHeader">
+      <h3>📚 Buku Tersedia</h3>
+
+      <div class="filter">
+        <select id="searchCategory">
+          <option value="">-- Pilih Kategori --</option>
+          <option value="fiksi">Fiksi</option>
+          <option value="nonfiksi">Nonfiksi</option>
+          <option value="sains">Sains</option>
+          <option value="teknologi">Teknologi</option>
+          <option value="sejarah">Sejarah</option>
+          <option value="biografi">Biografi</option>
+          <option value="agama">Agama</option>
+          <option value="anak">Anak</option>
+          <option value="komik">Komik</option>
+          <option value="lainnya">Lainnya</option>
+        </select>
+
+        <button class="btn btn-primary" onclick="searchBooksByCategory()">Cari</button>
+        <button class="btn btn-secondary" onclick="loadBooks()">Reset</button>
+      </div>
+    </div>
+
+    <div id="availableBooks"></div>
+
+  </div>
+
+</div>
+
+<div id="payPopup">
+  <div class="popup-content">
+
+    <h3>💳 Bayar Denda</h3>
+
+    <form id="payForm">
+      <input type="hidden" id="fineId">
+
+      <label>Metode Pembayaran</label>
+      <select id="paymentMethod" required>
+        <option value="tunai">Tunai</option>
+        <option value="transfer">Transfer</option>
+        <option value="ewallet">E-Wallet</option>
+      </select>
+
+      <label>Catatan</label>
+      <textarea id="payNotes"></textarea>
+
+      <div class="popup-actions">
+        <button class="btn btn-success" type="submit">Bayar</button>
+        <button class="btn btn-danger" type="button" onclick="closePayPopup()">Batal</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+</body>
+</html>
